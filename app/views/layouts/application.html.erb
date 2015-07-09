@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ElliotTest</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render 'shared/navbar' %>
+
+<% if flash %>
+    <div id="flash-container">
+      <div id="flash-display">
+        <% flash.each do |name, msg| %>
+            <div id="flash_<%= "#{name}" %>" class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>">
+              <a class="close" data-dismiss="alert">&#215;</a>
+              <p style="margin: 0 auto;">
+                <%= msg %>
+              </p>
+            </div>
+        <% end %>
+      </div>
+    </div>
+<% end %>
+<div class="container">
+  <%= yield %>
+</div>
+
+
+
+</body>
+</html>

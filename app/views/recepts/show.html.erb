@@ -1,0 +1,6 @@
+<h1> <%= @recept.title %></h1>
+<small><%= link_to 'Radera recept', recept_path(@recept), method: :delete, data: 'Är du säker?' %></small>
+<small><%= link_to 'Editera recept', edit_recept_path(@recept) %></small>
+<p> <%= @recept.description  %></p>
+
+<small> Det här receptet har visats <%= @recept.impressionist_count %> gånger.</small>

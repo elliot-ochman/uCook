@@ -1,0 +1,9 @@
+<h1 style="color: red;" >Alla recept </h1>
+<%= link_to 'Skapa recept', new_recept_path, class: 'btn btn-default'  %>
+
+<% @recepts.each do |recept| %>
+    <h2><%= link_to recept.title, recept_path(recept), style: 'text-decoration: none !Important;' %> </h2>
+    <p><%= recept.description %></p>
+<%= link_to 'Visa recept', recept_path(recept), class: 'btn btn-default' %>
+
+<% end %>
