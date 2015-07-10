@@ -13,6 +13,13 @@
 
 <% end %>
 <div class="row-fluid">
+  <% if @recept.marked_as_favorite? by: current_user %>
+      <%= link_to 'Ångra', remove_favorite_recept_path, class: 'active',  data: { no_turbolink: true } %>
+  <% else %>
+      <%= link_to 'Gilla', add_favorite_recept_path, class: 'active',  data: { no_turbolink: true } %>
+  <% end %>
+</div>
+<div class="row-fluid">
   <div class="well well-sm">
     <small> Det här receptet har visats <%= @recept.impressionist_count %> gånger.</small>
 

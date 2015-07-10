@@ -44,6 +44,18 @@ class ReceptsController < ApplicationController
     redirect_to recepts_path, notice: "Raderade recept: #{@recept.title} "
   end
 
+  def add_favorite
+    @recept = Recept.find(params[:id])
+    current_user.favorite_recepts << @recept
+    redirect_to recept_path(@recept), notice: "La till #{@recept.title} till dina favoriter"
+  end
+
+  def remove_favorite
+    @recept = Recept.find(params[:id])
+    current_user.favorite_recepts.delete @recept
+    redirect_to recept_path(@recept), alert: "Tog bort #{@recept.title} från dina favoriter"
+  end
+
   private
 
   def recept_params

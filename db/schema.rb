@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710105825) do
+ActiveRecord::Schema.define(version: 20150710153816) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -49,6 +49,18 @@ ActiveRecord::Schema.define(version: 20150710105825) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "marks", id: false, force: :cascade do |t|
+    t.integer  "marker_id"
+    t.string   "marker_type"
+    t.integer  "markable_id"
+    t.string   "markable_type"
+    t.string   "mark",          limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "marks", ["markable_id", "markable_type", "mark"], name: "index_marks_on_markable_id_and_markable_type_and_mark"
+  add_index "marks", ["marker_id", "marker_type", "mark"], name: "index_marks_on_marker_id_and_marker_type_and_mark"
 
   create_table "recept_ingredients", force: :cascade do |t|
     t.integer  "recept_id"

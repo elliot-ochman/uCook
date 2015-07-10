@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/effektz/markable.git
+  revision: 716868ba3cca4d5ad26d406aecb4658961136ee8
+  specs:
+    markable (0.1.4)
+      rails (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -182,6 +189,7 @@ DEPENDENCIES
   impressionist
   jbuilder (~> 2.0)
   jquery-rails
+  markable!
   pry-rails
   rails (= 4.2.1)
   sass-rails (~> 5.0)
