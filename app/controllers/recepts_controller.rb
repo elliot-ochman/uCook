@@ -1,5 +1,5 @@
 class ReceptsController < ApplicationController
-
+  before_action :authenticate_user!
   impressionist actions: [:show]
 
   def index
