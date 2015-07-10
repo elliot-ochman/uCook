@@ -1,0 +1,16 @@
+<h3><%= @user.username %></h3>
+<small><%= @user.email %></small><br/>
+<small>Medlem sedan <%= @user.created_at.strftime("%d %b. %Y") %></small>
+<% if @user.favorite_recepts %>
+    <h3>Favoriter</h3>
+    <small><%= "#{@user.username} har #{@user.favorite_recepts.count} favoriter" %></small>
+    <% @user.favorite_recepts.each do |recept| %>
+        <h4><%= link_to recept.title, recept_path(recept) %></h4>
+        <small><%= recept.description %></small>
+    <% end %>
+<% end %>
+
+<% if @user == current_user %>
+    <%= link_to 'Radera profil', registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %>
+
+<% end %>

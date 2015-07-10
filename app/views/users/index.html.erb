@@ -1,0 +1,5 @@
+<% @users.each do |user| %>
+    <h3><%= link_to user.username, user_path(user) %></h3>
+    <small><%= user.email %></small><br/>
+    <small>Medlem sedan <%= user.created_at.strftime("%d %b. %Y") %></small>
+<% end %>
