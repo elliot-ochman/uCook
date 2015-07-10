@@ -1,0 +1,13 @@
+
+<%= form_for(:user, url: session_path(:user), html: { class: 'navbar-form navbar-right form-inline' }) do |f| %>
+    <div class="form-group">
+      <%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password, placeholder: 'Lösenord', class: 'form-control'  %>
+    </div>
+    <div class="checkbox">
+      <%= f.check_box :remember_me %> <%= f.label :remember_me, ' Kom ihåg mig' %>
+    </div>
+    <%= f.submit 'Logga in', class: 'btn btn-default' %>
+<% end %>
