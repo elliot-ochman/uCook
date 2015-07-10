@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   devise_for :users
   resources :recepts do
     member do
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
       get :remove_favorite
     end
   end
+  resources :users
   #root 'high_voltage/pages#show', id: 'start'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
