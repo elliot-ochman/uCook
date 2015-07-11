@@ -1,6 +1,7 @@
 <h1> <%= @recept.title %></h1>
 <small><%= link_to 'Radera recept', recept_path(@recept), method: :delete, data: {confirm: 'Är du säker?'} %></small>
 <small><%= link_to 'Editera recept', edit_recept_path(@recept) %></small>
+<%= image_tag @recept.image.url(:medium) if @recept.image.exists? %>
 <p> <%= @recept.description %></p>
 
 <% if @recept.ingredients.any? %>

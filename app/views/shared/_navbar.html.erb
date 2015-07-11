@@ -9,7 +9,7 @@
             <%= link_to 'Alla recept', recepts_path %>
           </li>
           <li>
-            <p class="navbar-text">Inloggad som: <%= current_user.email %> </p>
+            <p class="navbar-text">Inloggad som: <%= link_to current_user.email, user_path(current_user) %> </p>
           </li>
           <li class="btn-group btn-group-xs">
             <%= link_to 'Logga ut', destroy_user_session_path, method: :delete, class: 'navbar-text btn btn-default' %>

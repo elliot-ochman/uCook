@@ -1,9 +1,25 @@
-<h1 style="color: red;" >Alla recept </h1>
-<%= link_to 'Skapa recept', new_recept_path, class: 'btn btn-default'  %>
-
+<h1 style="color: red;">Alla recept </h1>
+<%= link_to 'Skapa recept', new_recept_path, class: 'btn btn-default' %>
 <% @recepts.each do |recept| %>
-    <h2><%= link_to recept.title, recept_path(recept), style: 'text-decoration: none !Important;' %> </h2>
-    <p><%= recept.description %></p>
-<%= link_to 'Visa recept', recept_path(recept), class: 'btn btn-default' %>
+    <div class="row-fluid">
+      <div>
+        <h3>
+          <%= link_to recept.title, recept_path(recept), style: 'text-decoration: none !Important;' %>
+
+        </h3>
+
+      </div>
+      <div>
+        <%= image_tag recept.image.url(:thumb) if recept.image.exists? %>
+
+      </div>
+      <div>
+        <p><%= recept.description %></p>
+
+      </div>
+      <hr/>
+    </div>
+
+
 
 <% end %>

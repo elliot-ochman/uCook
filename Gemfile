@@ -38,6 +38,7 @@ gem 'pry-rails'
 gem 'devise'
 gem 'high_voltage', '~> 2.3.0'
 gem 'markable', github: 'effektz/markable'
+gem 'paperclip', '~> 4.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

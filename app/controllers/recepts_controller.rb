@@ -59,6 +59,6 @@ class ReceptsController < ApplicationController
   private
 
   def recept_params
-    params[:recept].permit(:title, :description)
+    params[:recept].permit(:title, :description, :image)
   end
 end

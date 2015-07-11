@@ -11,6 +11,10 @@
 <% end %>
 
 <% if @user == current_user %>
-    <%= link_to 'Radera profil', registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %>
+    <hr/>
+    <div class="row-fluid">
+      <%= link_to 'Radera profil', registration_path(@user), data: { confirm: 'Är du säker?' }, method: :delete %>
+
+    </div>
 
 <% end %>
