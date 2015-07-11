@@ -1,7 +1,13 @@
 <h1>Editera <%= @recept.title %></h1>
 
 <%= form_for @recept, class: 'form-inline' do |form| %>
-
+    <% if @recept.errors.full_messages.any? %>
+        <div class="alert alert-danger" role="alert">
+          <% @recept.errors.full_messages.each do |error_message| %>
+              <%= error_message if @recept.errors.full_messages.first == error_message %> <br />
+          <% end %>
+        </div>
+    <% end %>
     <div class="form-group">
       <%= form.label :title, 'Titel' %>
       <%= form.text_field :title, class: 'form-control' %>
@@ -12,14 +18,31 @@
       <%= form.text_area :description, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= image_tag @recept.image.url(:thumb) if @recept.image.exists? %>
+      <div id="image_target">
+        <%= image_tag @recept.image.url(:thumb) if @recept.image.exists? %>
+      </div>
       <%= form.file_field :image %>
     </div>
     <div class="form-group">
       <%= form.submit 'Spara', class: 'btn btn-default' %>
     </div>
-
-
-
-
 <% end %>
+
+<script>
+    $(function() {
+        $('#recept_image').on('change', function(event) {
+            var files = event.target.files;
+            var image = files[0]
+            var reader = new FileReader();
+            reader.onload = function(file) {
+                var img = new Image();
+                console.log(file);
+                img.src = file.target.result;
+                img.width = 100;
+                $('#image_target').html(img);
+            }
+            reader.readAsDataURL(image);
+            console.log(files);
+        });
+    });
+</script>
