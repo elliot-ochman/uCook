@@ -5,6 +5,17 @@ GIT
     markable (0.1.4)
       rails (>= 3.1)
 
+GIT
+  remote: git://github.com/tochman/clndr-rails.git
+  revision: 7805948160054ca830e117caf5b0bb68c31741bf
+  specs:
+    clndr-rails (1.2.10.1)
+      jquery-rails
+      momentjs-rails
+      rails (~> 4.2.0)
+      railties (~> 4.2.0)
+      underscore-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -103,6 +114,8 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
+    momentjs-rails (2.10.3)
+      railties (>= 3.1)
     multi_json (1.11.1)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -178,6 +191,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.8.3)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.1.2)
@@ -192,6 +206,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.5)
   byebug
+  clndr-rails!
   coffee-rails (~> 4.1.0)
   devise
   high_voltage (~> 2.3.0)

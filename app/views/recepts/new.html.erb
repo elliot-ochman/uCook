@@ -3,7 +3,7 @@
   <% if @recept.errors.full_messages.any? %>
       <div class="alert alert-danger" role="alert">
         <% @recept.errors.full_messages.each do |error_message| %>
-            <%= error_message if @recept.errors.full_messages.first == error_message %> <br />
+            <%= error_message %> <br />
         <% end %>
       </div>
   <% end %>

@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require moment
+//= require underscore
+//= require clndr-rails
 //= require_tree .
 
 $(document).ready(function () {

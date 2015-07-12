@@ -2,7 +2,31 @@
   <h1>
     uCook
   </h1>
-  <p>
-    Välkommen!
-  </p>
+  <%= @clndr.view %>
 </div>
+
+<script class="custom_template" type="template">
+  <div class="clndr-grid">
+    <div class="days-of-the-week clearfix">
+      <%% _.each(daysOfTheWeek, function(day) { %>
+          <div class="header-day"><%%= day %></div>
+      <%% }); %>
+    </div>
+    <div class="days clearfix">
+      <%% _.each(days, function(day) { %>
+          <div class="<%%= day.classes %>" id="<%%= day.id %>">
+            <span class="day-number"><%%= day.day %></span>
+          </div>
+      <%% }); %>
+    </div>
+  </div>
+  <div class="event-listing">
+    <div class="event-listing-title">Denna månad</div>
+    <%% _.each(eventsThisMonth, function(event) { %>
+        <div class="event-item">
+          <div class="event-item-name"><%%= event.name %></div>
+          <div class="event-item-location"><%%= event.location %></div>
+        </div>
+    <%% }); %>
+  </div>
+</script>

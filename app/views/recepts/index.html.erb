@@ -1,25 +1,19 @@
 <h1 style="color: red;">Alla recept </h1>
 <%= link_to 'Skapa recept', new_recept_path, class: 'btn btn-default' %>
 <% @recepts.each do |recept| %>
-    <div class="row-fluid">
-      <div>
-        <h3>
+
+    <div class="media">
+      <div class="media-left">
+        <%= link_to recept.image.exists? ? image_tag(recept.image.url(:thumb), class: 'media-object', style: 'max-width: 75px;') : recept.title, recept_path(recept), style: 'text-decoration: none !Important;' %>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">
           <%= link_to recept.title, recept_path(recept), style: 'text-decoration: none !Important;' %>
-
-        </h3>
-
+        </h4>
+        <%= recept.description %> <br/>
+        <small>Gillas av <%= recept.users_have_marked_as_favorite.count %> användare.</small>
       </div>
-      <div>
-        <%= image_tag recept.image.url(:thumb) if recept.image.exists? %>
-
-      </div>
-      <div>
-        <p><%= recept.description %></p>
-
-      </div>
-      <hr/>
     </div>
-
 
 
 <% end %>
